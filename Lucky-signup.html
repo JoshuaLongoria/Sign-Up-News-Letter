@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="https://api.web3forms.com/submit" method="POST" onsubmit="return validateEmail()">
+        <div class = "logo"></div>
+        <div class = "buttons1">
+            <a class =" catalog" href="catalog.html" >catalog</a>
+            <a class =" catalog" href="more-info.html" >More info</a>
+        </div>
+        <p>Be first to know when we launch by signing up below</p>
+        <div class="input">
+            <input type="hidden" name="access_key" value="55e5e970-3d7e-4c2e-930f-b498378275d9">
+            <input type="email" name="Email" style="height: 30px; width: 300px;" placeholder="Email" id="email-input" oninput="validateEmail()" required >
+            <span id="email-error"></span>
+            <button type="submit">NOTIFY ME</button>
+        </div>
+    </form>
+    <div class ="background"><img src="BackgroundLucky2.png" alt="Background Image"></div>
+    <script src="script.js"></script>
+</body>
+</html>

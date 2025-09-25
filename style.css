@@ -1,112 +1,345 @@
-*{
+/* CSS Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-html{
+
+/* Root Variables */
+:root {
+    --primary-color: #2e2e2e;
+    --accent-color: rgba(250, 250, 250, 0.9);
+    --glass-bg: rgba(250, 250, 250, 0.15);
+    --text-color: #333;
+    --error-color: #ff4757;
+    --border-radius: 16px;
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+html {
     scroll-behavior: smooth;
 }
-body{
+
+body {
     min-height: 100vh;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: rgb(34, 34, 34);
-}
-.background{
-    width: 100vw;
-    position: absolute;
-}
-form{
-    margin: 0 auto;
-    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-color);
     display: flex;
-    flex-direction: column;
-    width: 80vw;
-    max-width: 400px;
-    height: 500px;
-    background-color: rgba(250, 250, 250, 0.151);
-    backdrop-filter: blur(25px);
-    border-radius: 20px;
-    box-shadow: 0px 1px 26px -10px rgb(10, 0, 0);
-    top: 250px;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Background */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 420px;
+    margin: 2rem;
     z-index: 1;
 }
-form .logo{
-    width: 250px;
-    height: 150px;
-    margin: 20px auto 0 auto;
-    background-color: #00000000;
-    background-image: url(logoLucky.png);
-    background-size: cover;
-    display: flex;
-}
-form .buttons1 a{
-    margin: 5px auto 10px auto;
-    border-radius: 50px;
-    width: 100%;
-    max-width: 250px;
-    border: none;
-    outline: none;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    background-color: rgba(250, 250, 250, 0.781);
-    box-shadow: 0px 1px 26px -10px rgb(5, 2, 2);
-    text-decoration: none;
-    color: inherit;
-    
-}
-form a:hover{
-    background-color: rgba(179, 175, 175, 0);
+
+/* Form Styles */
+form {
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
-}
-form p{
-    width: 80%;
-    padding: 5px 10% 10px 10%;
-    margin: 15px auto 0 auto;
-    text-align: center;
-    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
     display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: var(--transition);
 }
-form input{
-    text-align: center;
-    border: none;
-    margin: 0 auto;
-    padding: 0;
-    outline: none;
-    border-radius: 50px;
-    font-weight: 500;
-    display: flex;
+
+form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
-form input:focus{
-    border: 2px solid #2e2e2ed5;
-}
-form .input button{
-    margin: 20px auto 0 auto;
+
+/* Logo */
+.logo {
     display: flex;
     justify-content: center;
-    width: 125px;
-    border-radius: 10px;
-    border: none;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.logo img {
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.nav-link {
+    flex: 1;
+    max-width: 120px;
+    padding: 0.75rem 1rem;
+    background: var(--accent-color);
+    color: var(--text-color);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link:active {
+    transform: translateY(0);
+}
+
+/* Content Section */
+.content {
+    text-align: center;
+    color: white;
+}
+
+.content h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.content p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Group */
+.form-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+/* Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Email Input */
+#email-input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    text-align: center;
     outline: none;
-    font-size: 15px;
-    font-weight: bold;
+    transition: var(--transition);
+}
+
+#email-input::placeholder {
+    color: #666;
+    opacity: 0.8;
+}
+
+#email-input:focus {
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(46, 46, 46, 0.1);
+}
+
+#email-input:valid {
+    border-color: #27ae60;
+}
+
+#email-input:invalid:not(:placeholder-shown) {
+    border-color: var(--error-color);
+}
+
+/* Error Message */
+.error-message {
+    position: absolute;
+    left: 1rem;
+    top: 100%;
+    margin-top: 0.5rem;
+    color: var(--error-color);
+    font-size: 0.875rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: var(--transition);
+}
+
+.error-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 150px;
+    margin: 1rem auto 0;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), #1a1a1a);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
-#email-error{
-    font-size: 16px;
-    font-weight: 400;
-    color: red;
-    margin: 2px auto 0 100px;
-    transition: top 0.5s ;
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
 }
-@media (max-width:800px) {
-    form{
-        width: 80vw;
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(46, 46, 46, 0.3);
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Loading State */
+.submit-btn.loading span {
+    opacity: 0;
+}
+
+.submit-btn.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
     }
-    .background{
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+    }
+    
+    form {
+        padding: 1.5rem;
+    }
+    
+    .content h1 {
+        font-size: 1.25rem;
+    }
+    
+    .nav-link {
+        padding: 0.625rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .background {
         display: none;
+    }
+    
+    body {
+        background: linear-gradient(135deg, var(--primary-color), #1a1a1a);
+    }
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 1rem;
+        gap: 1rem;
+    }
+    
+    .logo img {
+        max-width: 150px;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        max-width: none;
+    }
+}
+
+/* Focus Management */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
